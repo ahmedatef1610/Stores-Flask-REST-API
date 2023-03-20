@@ -113,8 +113,8 @@ def create_app(db_url=None):
 
 ####################################################################
 
-app = create_app()
 if __name__ == '__main__':
+    app = create_app()
     @app.route('/')
     def index():
         return render_template('index.html')
