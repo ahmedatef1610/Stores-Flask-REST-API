@@ -27,8 +27,8 @@ from flask_migrate import Migrate
 
 
 
-import redis
-from rq import Queue
+# import redis
+# from rq import Queue
 
 ####################################################################
 
@@ -36,8 +36,8 @@ def create_app(db_url=None):
     app = Flask(__name__)
 
 
-    connection = redis.from_url( os.getenv("REDIS_URL") )  
-    app.queue = Queue("emails", connection=connection)
+    # connection = redis.from_url( os.getenv("REDIS_URL") )  
+    # app.queue = Queue("emails", connection=connection)
 
 
     app.config["PROPAGATE_EXCEPTIONS"] = True
@@ -119,8 +119,8 @@ def create_app(db_url=None):
 
 if __name__ == '__main__':
     app = create_app()
-    @app.route('/')
-    def index():
-        return render_template('index.html')
+    # @app.route('/')
+    # def index():
+    #     return render_template('index.html')
     # app.run(host='127.0.0.1', port=8080, debug=True)
     app.run(host='0.0.0.0', port=8080, debug=True)
